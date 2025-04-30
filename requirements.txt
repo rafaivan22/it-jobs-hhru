@@ -1,6 +1,1 @@
-pandas
-requests
-beautifulsoup4
-matplotlib
-wordcloud
-streamlit
+Файл зависимостей
