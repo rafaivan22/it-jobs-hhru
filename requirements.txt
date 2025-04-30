@@ -1,1 +1,7 @@
-Файл зависимостей
+pandas
+matplotlib
+seaborn
+requests
+tqdm
+wordcloud
+streamlit
