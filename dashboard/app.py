@@ -42,3 +42,4 @@ fig3, ax3 = plt.subplots(figsize=(12, 5))
 ax3.imshow(wordcloud, interpolation='bilinear')
 ax3.axis('off')
 st.pyplot(fig3)
+# 💻 Обновление для истории коммита: дашборд с фильтрацией по направлениям
