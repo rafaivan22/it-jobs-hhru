@@ -1,0 +1,5 @@
+hh_api_url: "https://api.hh.ru/vacancies"
+specializations:
+  - "Программист"
+  - "Разработчик"
+  - "Инженер-программист"
