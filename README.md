@@ -55,3 +55,27 @@ python data_processing.py
 ```
 streamlit run dashboard/app.py
 ```
+
+## Additional Scripts
+
+В папке `scripts/` помимо `scrape_vacancies.py` находятся:
+
+- `data_collection.py` — альтернативный скрипт для сбора данных из `data/raw_jobs.csv`.
+- `data_cleaning.py` — альтернативный скрипт для очистки данных и сохранения в `data/cleaned_jobs.csv`.
+
+## Ноутбуки
+
+В папке `notebooks/` присутствуют следующие файлы:
+
+- `1_data_cleaning.ipynb`
+- `2_analysis.ipynb`
+- `3_visualization.ipynb`
+- `final_report.ipynb`
+
+## Makefile и Docker
+
+- Makefile содержит цели:
+  - `make lint` — проверка кода через flake8.
+  - `make test` — запуск всех тестов `pytest tests`.
+  - `make run` — запуск проекта.
+- Docker: файл `Dockerfile` настроен для сборки образа с необходимыми зависимостями.
