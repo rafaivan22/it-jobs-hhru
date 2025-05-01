@@ -15,58 +15,43 @@
 ##  Структура проекта
     ├── README.md               <- Описание проекта, авторов, инструкции
     ├── requirements.txt        <- Все зависимости для запуска проекта
+    ├── config.yaml             <- Конфигурация скриптов
     ├── notebooks               <- Jupyter ноутбуки (очистка, анализ, визуализация)
     │   ├── 1_data_cleaning.ipynb
     │   ├── 2_analysis.ipynb
     │   └── 3_visualization.ipynb
-    ├── scripts                 <- Python-скрипты (в частности, для сбора данных)
+    ├── scripts                 <- Python-скрипты (сбор данных)
     │   └── scrape_vacancies.py
     ├── data                    <- Все используемые и полученные данные
+    │   ├── raw
+    │   │   └── vacancies.json
     │   └── clean_it_vacancies.csv
     ├── dashboard               <- Streamlit-дэшборд
     │   └── app.py
+    ├── tests                   <- Тесты проекта
+    ├── Dockerfile
+    ├── .gitignore
+    ├── .flake8
+    ├── Makefile
+    └── .github/workflows
+        └── ci.yml
+
 * * *
 ##  Быстрый старт
 
-  1. Установите зависимости:
-
-    pip install -r requirements.txt
-
-  2. Соберите данные с hh.ru:
-
-    python scripts/scrape_vacancies.py
-
-  3. Запустите дашборд:
-
-    streamlit run dashboard/app.py
-
-* * *
-##  Что реализовано
-
-  * Сбор данных — вакансии по 10+ направлениям через API hh.ru
-  * Очистка — удаление пропусков, преобразование зарплат, фильтрация
-  * Анализ — по направлениям, городам, зарплатам, навыкам
-  * Визуализация — гистограммы, barplot, wordcloud
-  * Интерактивный дашборд — Streamlit
-  * ✅ Соответствие всем критериям учебного проекта
-
-* * *
-##  Используемые технологии
-
-  * Python: pandas, matplotlib, seaborn
-  * Web: API hh.ru
-  * Dashboards: Streamlit
-  * Парсинг: requests, tqdm
-  * Визуализация текста: WordCloud
-
-* * *
-
-## ‍ Авторы
-
-  * Цыберенко Иван
-  * Галактионов Евгений
-
-* * *
-##  Источник данных
-
-  * API hh.ru: https://api.hh.ru
+1. Установите зависимости:
+```
+pip install -r requirements.txt
+```
+2. Соберите данные с hh.ru:
+```
+python scripts/scrape_vacancies.py
+```
+3. Очистите данные:
+```
+python data_processing.py
+```
+4. Запустите дашборд:
+```
+streamlit run dashboard/app.py
+```

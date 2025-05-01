@@ -2,10 +2,10 @@ import os
 import json
 import pandas as pd
 
-def clean_salary(salary_dict):
-    if not salary_dict:
+def clean_salary(s):
+    if not s:
         return None, None
-    return salary_dict.get('from'), salary_dict.get('to')
+    return s.get('from'), s.get('to')
 
 def load_raw(path='data/raw/vacancies.json'):
     with open(path, 'r', encoding='utf-8') as f:
@@ -14,18 +14,18 @@ def load_raw(path='data/raw/vacancies.json'):
 def clean_data(raw, output_csv='data/clean_it_vacancies.csv'):
     records = []
     for item in raw:
-        sal_from, sal_to = clean_salary(item.get('salary'))
-        record = {
+        fmin, fmax = clean_salary(item.get('salary'))
+        rec = {
             'id': item.get('id'),
             'name': item.get('name'),
             'area': item.get('area', {}).get('name'),
             'published_at': item.get('published_at'),
-            'salary_from': sal_from,
-            'salary_to': sal_to,
+            'salary_from': fmin,
+            'salary_to': fmax,
             'employer': item.get('employer', {}).get('name'),
             'url': item.get('alternate_url')
         }
-        records.append(record)
+        records.append(rec)
     df = pd.DataFrame(records)
     df.dropna(subset=['salary_from', 'salary_to'], inplace=True)
     os.makedirs(os.path.dirname(output_csv), exist_ok=True)

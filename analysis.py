@@ -22,5 +22,5 @@ def top_cities(df, n=10):
 if __name__ == '__main__':
     df = load_data()
     salary_distribution(df)
-    print('Top 10 городов по числу вакансий:')
+    print('Top 10 cities by vacancies:')
     print(top_cities(df))

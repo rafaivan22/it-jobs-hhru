@@ -12,11 +12,7 @@ def fetch_vacancies(config, per_page=100, max_pages=5):
     all_vacancies = []
     for spec in config['specializations']:
         for page in range(max_pages):
-            params = {
-                'text': spec,
-                'per_page': per_page,
-                'page': page
-            }
+            params = {'text': spec, 'per_page': per_page, 'page': page}
             resp = requests.get(config['hh_api_url'], params=params)
             resp.raise_for_status()
             data = resp.json()
@@ -34,5 +30,5 @@ def save_raw(data, output_dir='data/raw'):
 
 if __name__ == '__main__':
     cfg = load_config()
-    vacancies = fetch_vacancies(cfg)
-    save_raw(vacancies)
+    vac = fetch_vacancies(cfg)
+    save_raw(vac)
